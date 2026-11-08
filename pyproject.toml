@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "network-strategy-compiler"
+version = "0.1.0"
+description = "Bounded, reproducible VPN configuration experiments"
+requires-python = ">=3.11"
+dependencies = ["optuna>=4.5,<6"]
+license = "MIT"
+
+[project.scripts]
+nsc = "nsc.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nsc"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
